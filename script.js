@@ -1,7 +1,7 @@
 const container = document.querySelector(".gridContainer");
 
-function changeColor(div){
-    div.style.backgroundColor = 'red';
+function changeColor(div, color){
+    div.style.backgroundColor = color;
 }
 function createPad(size){
     for(let i = 0; i < size; i++){
@@ -20,7 +20,7 @@ function createPad(size){
 
     boxes.forEach(box => {
         box.addEventListener("mouseover", function(){
-            changeColor(box);
+            changeColor(box, "red");
         })
     })
 }
@@ -43,4 +43,30 @@ function removePad(){
     while(container.lastElementChild){
         container.removeChild(container.lastElementChild);
     }
+}
+
+function clearPad(){
+    const boxes = document.querySelectorAll(".box");
+
+    boxes.forEach(box => {
+            changeColor(box, "white");
+    })
+}
+function erase(){
+    const boxes = document.querySelectorAll(".box");
+
+    boxes.forEach(box => {
+        box.addEventListener("mouseover", function(){
+            changeColor(box, "white");
+        })
+    })
+}
+function color(){
+    const boxes = document.querySelectorAll(".box");
+
+    boxes.forEach(box => {
+        box.addEventListener("mouseover", function(){
+            changeColor(box, "red");
+        })
+    })
 }
